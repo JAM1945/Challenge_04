@@ -1,12 +1,12 @@
 // Question Array
 
 
-var MyQuestions = [
+var questions = [
   new Question("Javascript is which type of language?", ["Object-Oriented", "Object-Based", "Assembly Language", "High-Level"], "Object-Based"),
-  new Question("The 'function and the 'variable are known as:" ["Key words", "Data type", "Declaration statemetns", "Prototypes"], "Declaration Statements"),
+  new Question("The 'function and the 'variable are known as:", ["Key words", "Data type", "Declaration statemetns", "Prototypes"], "Declaration Statements"),
   new Question("Which of the following variables take precedence over the others if the names are the same?", ["Global variables", "Local variables", "Both of the Above", "None of the Above"], "Local variables"),
-  new Question("Which of the following symbols is used to create comments in javascript?" ["\\", "//", "/* */", "\* */"], "/* */"),
-  new Question("Javascript files have an extension of:" ["Java", "js", "javascript", "xml"], "js")
+  new Question("Which of the following symbols is used to create comments in javascript?", ["\\", "//", "/* */", "\* */"], "/* */"),
+  new Question("Javascript files have an extension of:", ["Java", "js", "javascript", "xml"], "js")
 ];
 
 
@@ -87,12 +87,11 @@ function showScores() {
     element.innerHTML = gameOverHTML;
 };
  
-// create questions here
  
 // create quiz
 var quiz = new Quiz(questions);
  
-// Start ad display quiz
-let StartQ = document.querySelector("startQuiz");
-StartQ.addEventListener("click", event => {
+// Start and display quiz
+var StartQ = document.querySelector("#startQuiz");
+StartQ.addEventListener("click", function() {
 populate();});
