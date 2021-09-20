@@ -27,6 +27,7 @@ Quiz.prototype.getQuestionIndex = function() {
 //*IF the question index is the correct answer, the score increases, and questionIndex increases to next place in Array and next qustion can be retrieved
 Quiz.prototype.guess = function(answer) {
     if(this.getQuestionIndex().isCorrectAnswer(answer)) {
+        displayMessage()
         this.score++;
     }
  
@@ -73,9 +74,7 @@ function populate() {
             element.innerHTML = choices[i];
             //**also executes the guess function with btn(i) and choice[i] as parameters
             guess("btn" + i, choices[i]);
-        }
- 
-        
+        }  
     }
 };
  
@@ -90,11 +89,11 @@ function guess(id, guess) {
 };
  
  
- 
+ //Scoring Function
 function showScores() {
-    var gameOverHTML = "Your score is: " + quiz.score + " out of 5";
+    var gameOver = "Your score is: " + quiz.score + " out of 5";
     var element = document.getElementById("Score");
-    element.innerHTML = gameOverHTML;
+    element.innerHTML = gameOver;
 };
  
  
