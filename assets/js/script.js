@@ -27,10 +27,13 @@ Quiz.prototype.getQuestionIndex = function() {
 //*IF the question index is the correct answer, the score increases, and questionIndex increases to next place in Array and next qustion can be retrieved
 Quiz.prototype.guess = function(answer) {
     if(this.getQuestionIndex().isCorrectAnswer(answer)) {
-        displayMessage()
+      var rightWrongEl = document.getElementById("rightWrongMessage");
+      rightWrongEl.innerHTML = "Correct Answer";
+   
         this.score++;
     }
- 
+    var rightWrongEl = document.getElementById("rightWrongMessage");
+    rightWrongEl.innerHTML = "Incorrect Answer";
     this.questionIndex++;
 }
 
@@ -50,6 +53,7 @@ function Question(text, choices, answer) {
 //*Creating Correct answer validator function that confirms thechoice selected matches the correct answer
 Question.prototype.isCorrectAnswer = function(choice) {
     return this.answer === choice;
+
 }
  
 
