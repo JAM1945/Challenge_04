@@ -17,7 +17,7 @@ var questions = [
     this.questionIndex = 0;
 }
  
-//*Creating a QuestionIndex function to retrieve the question index position in question Arry
+//*Creating a QuestionIndex function to retrieve the question index position in question Array
 
 Quiz.prototype.getQuestionIndex = function() {
     return this.questions[this.questionIndex];
@@ -55,7 +55,7 @@ Question.prototype.isCorrectAnswer = function(choice) {
 //*Create if/else function with if starting if condition is satisfied, will execute score function; otherwise, it will equate HTML question Id w/ java Element variable and the Question text of the questions' quastionIndex property specified in the array
 
 function populate() {
-    if(quiz.isEnded()) {
+    if(quiz.isEnded() || timerEl===0) {
         showScores();
     }
     else {
@@ -75,7 +75,7 @@ function populate() {
             guess("btn" + i, choices[i]);
         }
  
-        showProgress();
+        
     }
 };
  
@@ -90,16 +90,10 @@ function guess(id, guess) {
 };
  
  
-function showProgress() {
-    var currentQuestionNumber = quiz.questionIndex + 1;
-    var element = document.getElementById("progress");
-    element.innerHTML = "Question " + currentQuestionNumber + " of " + quiz.questions.length;
-};
  
 function showScores() {
-    var gameOverHTML = "<h1>Result</h1>";
-    gameOverHTML += "<h2 id='score'> Your scores: " + quiz.score + "</h2>";
-    var element = document.getElementById("quiz");
+    var gameOverHTML = "Your score is: " + quiz.score + " out of 5";
+    var element = document.getElementById("Score");
     element.innerHTML = gameOverHTML;
 };
  
